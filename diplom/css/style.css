@@ -1,0 +1,476 @@
+*{
+  padding: 0px;
+  margin: 0px;
+}
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+.container{
+  max-width: 100%;
+}
+
+.nav {
+    width: 320px;
+    min-width: 320px;
+    height: 100%;
+    position: fixed;
+    left: -320px;
+    z-index: 2000;
+    background-color: rgba(211,211,211,0.2);
+}
+
+.nav-toggle {
+   position: absolute;
+   top: 1em;
+   padding: 0.5em;
+   cursor: pointer;
+   font-size: 1.2em;
+   line-height: 1;
+   z-index: 2001;
+}
+
+/* определяем текст кнопки
+* символ Unicode (TRIGRAM FOR HEAVEN)
+*/
+
+.nav-toggle:after {
+   content: '\2630';
+   text-decoration: none;
+   color: blue;
+}
+
+/**
+* Скрытый чекбокс (флажок)
+* невидим и недоступен :)
+* имя селектора атрибут флажка
+*/
+
+[id='nav-toggle'] {
+   position: absolute;
+   display: none;
+}
+
+/**
+* изменение положения переключателя
+* при просмотре на мобильных устройствах
+* когда навигация раскрыта, распологаем внутри панели
+*/
+
+/**
+* Когда флажок установлен, открывается панель
+* используем псевдокласс:checked
+*/
+
+[id='nav-toggle']:checked ~ .nav {
+   left: 0;
+   box-shadow:4px 0px 20px 0px rgba(0,0,0, 0.5);
+   -moz-box-shadow:4px 0px 20px 0px rgba(0,0,0, 0.5);
+   -webkit-box-shadow:4px 0px 20px 0px rgba(0,0,0, 0.5);
+   transition: 1s;
+   overflow-y: auto;
+}
+[id='nav-toggle']:not(checked) ~ .nav {
+   transition: 1s;
+}
+
+[id='nav-toggle']:checked ~ main{
+  width: 960px;
+  transition: width 1s;
+}
+[id='nav-toggle']:not(checked) ~ main {
+  width: 100%;
+   transition: width 1s;
+}
+
+[id='nav-toggle']:checked ~ main > div {
+  -webkit-transform: translateX(320px);
+  -moz-transform: translateX(320px);
+  transform: translateX(320px);
+    transition: 1s;
+}
+
+[id='nav-toggle']:not(checked) ~ main > div {
+    transition: 1s;
+}
+
+[id='nav-toggle']:checked ~ .nav h2 {
+    opacity: 1;
+    transition: 1s;
+}
+[id='nav-toggle']:not(checked)~ .nav h2 {
+    opacity: 0;
+    transition: 1s;
+}
+
+[id='nav-toggle']:checked ~ .nav > ul > li {
+    opacity: 1;
+}
+
+.nav h2 {
+    width: 100%;
+    text-align: left;
+    font-size: 16px;
+    line-height: 1.3em;
+    opacity: 0;
+    margin-bottom: 0px;
+}
+
+.nav h2 a {
+    color: silver;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+#menu{
+  color:black;
+  width: 100%;
+  position: relative;
+  padding-top: 50px;
+  padding-left: 15px;
+  padding-bottom: 8px;
+}
+#menu:after{
+  content:"";
+  position:absolute;
+  bottom:0;
+  left:35%;
+  width:25%;
+  height:2px;
+  margin-left:-30%;
+  background:blue;
+}
+
+.search_in_menu{
+  width: 100%;
+  background-color: silver;
+  opacity: 0.5;
+  height: 100px;
+}
+.search_in_menu #input_menu{
+  height: 30px;
+  width: 280px;
+  border-radius: 5px;
+}
+
+.menu-nav{
+  height: 270px;
+  width: 100%;
+  font-size: 16px;
+}
+
+.menu-list {
+    padding-top: 30px;
+    display: block;
+    color: silver;
+    list-style: none;
+    list-style-type: none;
+}
+
+.menu-list .menu-list-item{
+  margin-bottom: 10px;
+  margin-left: 15px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.menu-list .menu-list-item:after{
+  content:"";
+  position:absolute;
+  bottom:0;
+  left: 0;
+  width:90%;
+  height:1px;
+  background:silver;
+}
+
+.nav > ul > li {
+    line-height: 2.5;
+    padding-left: 15px;
+    opacity: 0;
+    list-style-type: none;
+}
+
+.nav > ul > li > a {
+   display: inline-block;
+   font-size: 10px;
+   width: 100%;
+   text-decoration: none;
+   /* плавный переход */
+   -webkit-transition: color .5s ease, padding .5s ease;
+   -moz-transition: color .5s ease, padding .5s ease;
+   transition: color .5s ease, padding .5s ease;
+}
+
+.short-news{
+  margin-bottom: 30px;
+}
+
+.about-us h6, div img, div p, div:after, button{
+  margin-left: 15px;
+}
+
+.about-us > div, h6{
+  position: relative;
+}
+.about-us > h6{
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+}
+.about-us div img{
+  width: 90%;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  height: 100px;
+}
+.about-us div p{
+  font-weight: normal;
+  color: silver;
+  font-size: 12px;
+  padding-bottom: 50px;
+}
+
+.about-us div:after{
+  content:"";
+  position:absolute;
+  margin-bottom: 0px;
+  bottom:0;
+  left: 0;
+  width:90%;
+  height:1px;
+  background:silver;
+}
+
+.about-us h6:after{
+  content:"";
+  position:absolute;
+  margin-left: 0px;
+  bottom:0;
+  left: 0;
+  width:60%;
+  height:2px;
+  background:blue;
+}
+
+.help-info{
+  width: 100%;
+  font-size: 16px;
+}
+
+.help-info h6, p, h6:after, span{
+  margin-left: 15px;
+}
+
+.help-info h6{
+  margin-top: 40px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.help-info h6:after{
+  position: absolute;
+  content:"";
+  bottom:0;
+  left: 0;
+  margin-left: 0px;
+  width:30%;
+  height:2px;
+  background:blue;
+}
+
+.help-info p, span{
+  margin-top: 20px;
+  font-size: 12px;
+  font-weight: normal;
+  color: silver;
+}
+
+.help-info #span-1:before{
+  content: '\2709';
+}
+.help-info #span-2:before{
+  content: '\260E';
+}
+.help-info #span-3:before{
+  content: '\2302';
+}
+
+.help-info span{
+  position: relative;
+}
+.help-info span:after{
+  content:"";
+  position:absolute;
+  margin-bottom: 0px;
+  bottom:0;
+  left: 0;
+  width:90%;
+  height:1px;
+  background:silver;
+}
+
+#copyright{
+  padding-top: 15px;
+}
+
+.title-name{
+  padding-left: 50px;
+  padding-top: 85px;
+  position: relative;
+  padding-bottom: 10px;
+  font-size: 20px;
+  display: block;
+}
+.title-name:after{
+  position: absolute;
+  content:"";
+  bottom:0;
+  left: 35px;
+  width:90%;
+  height:2px;
+  background:blue;
+}
+
+.main-info, .last-published{
+  padding-left: 50px;
+  padding-top: 40px;
+  position: relative;
+  padding-bottom: 50px;
+}
+.main-info p, .main-info button, .last-published p, .last-published button{
+  padding-left: 0px;
+  margin-left: 0px;
+}
+
+.main-info > div > img{
+  height: 360px;
+  width: 85%;
+  border-radius: 10px;
+}
+
+.main-info:after{
+  content:"";
+  position:absolute;
+  left: 50px;
+  bottom:0;
+  width:88%;
+  height:1px;
+  background:silver;
+}
+
+.news{
+  position: relative;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding-top: 20px;
+}
+.news-row{
+  position: relative;
+}
+.news:after{
+  content:"";
+  position:absolute;
+  left: 0px;
+  bottom:-30px;
+  width:100%;
+  float: left;
+  height:1px;
+  background:silver;
+}
+
+.news-row > .news:last-child:before{
+  content:"";
+  position:absolute;
+  left: -40px;
+  width: 1px;
+  bottom:0;
+  height:100%;
+  background:silver;
+}
+
+.news > img{
+  width: 90%;
+  height: 40%;
+  margin-left: 0px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  overflow:hidden;
+}
+.news > h6{
+  width: 80%;
+}
+
+.news > img:hover{
+    transform:scale(1.2);
+}
+
+.news > button, .fast-news > button{
+  padding-left: 10px;
+  margin-bottom: 50px;
+  margin-left: 0px;
+}
+.news > p{
+  font-size: 14px;
+  font-weight: normal;
+  color: silver;
+  width: 80%;
+}
+
+.fast-news > img{
+  width: 95%;
+  height: 40%;
+  margin-left: 0px;
+  margin-bottom: 20px;
+}
+.fast-news > p{
+  font-size: 14px;
+  font-weight: normal;
+  color: silver;
+  width: 80%;
+  margin-left: 0px;
+}
+
+.fast-news-row{
+  padding-left: 50px;
+  padding-top: 40px;
+  width: 100%;
+  position: relative;
+  padding-bottom: 50px;
+}
+
+.fast-news-row > *{
+  padding: 0;
+  margin: 0;
+}
+
+.info-blocks{
+  padding: 0;
+  padding-top: 50px;
+  margin: 0;
+}
+
+.info-row > * > *{
+  padding-left: 50px;
+}
+
+.info-row > * > img{
+  width: 95%;
+  height: 40%;
+}
+
+.info-row > * > p{
+  font-size: 14px;
+  font-weight: normal;
+  color: silver;
+  width: 80%;
+  margin-left: 0px;
+}
+
+#hideImage > img{
+  position: absolute;
+  top: 10%;
+  left: 20%;
+}
